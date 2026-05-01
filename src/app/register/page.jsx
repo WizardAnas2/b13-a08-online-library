@@ -2,29 +2,29 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import { authClient } from "@/lib/auth-client";
 
 export default function RegisterPage() {
   const router = useRouter();
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     const form = e.target;
-    const name = form.name.value;
-    const email = form.email.value;
-    const photo = form.photo.value;
-    const password = form.password.value;
 
-    // Implementation logic for BetterAuth would go here
-    console.log({ name, email, photo, password });
+    const { data, error } = await authClient.signUp.email({
+      email: form.email.value,
+      password: form.password.value,
+      name: form.name.value,
+      image: form.photo.value, 
+      callbackURL: "/login",
+    });
 
-    // On Success:
-    toast.success("Registration Successful! Please login.");
-    router.push("/login");
-  };
-
-  const handleGoogleLogin = () => {
-    // BetterAuth Social Login Logic
-    toast.success("Redirecting to Google...");
+    if (error) {
+      toast.error(error.message);
+    } else {
+      toast.success("Registration Successful!");
+      router.push("/login");
+    }
   };
 
   return (
@@ -45,30 +45,22 @@ export default function RegisterPage() {
 
           <div className="form-control">
             <label className="label"><span className="label-text">Photo URL</span></label>
-            <input name="photo" type="text" placeholder="https://link-to-your-photo.com" className="input input-bordered" required />
+            <input name="photo" type="text" placeholder="Image link" className="input input-bordered" required />
           </div>
 
           <div className="form-control">
             <label className="label"><span className="label-text">Password</span></label>
-            <input name="password" type="password" placeholder="••••••••" className="input input-bordered" required />
+            <input name="password" type="password" placeholder="........" className="input input-bordered" required />
           </div>
 
           <div className="form-control mt-6 gap-3">
             <button className="btn btn-primary">Register</button>
             <div className="divider">OR</div>
-            <button 
-              type="button" 
-              onClick={handleGoogleLogin} 
-              className="btn btn-outline flex items-center gap-2"
-            >
-              <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" className="w-5" alt="Google" />
-              Register with Google
-            </button>
+            
+            <Link href="/" className="btn btn-outline border-gray-300">
+              Go Back to Home
+            </Link>
           </div>
-
-          <p className="mt-4 text-center">
-            Already have an account? <Link href="/login" className="text-primary font-bold">Login</Link>
-          </p>
         </form>
       </div>
     </div>

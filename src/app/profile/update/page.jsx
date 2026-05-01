@@ -1,47 +1,52 @@
 "use client";
-import { authClient } from "@/lib/auth-client"; 
+import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
 export default function UpdateProfile() {
   const router = useRouter();
+  
+  // Use session to pre-fill the form if you want
+  const { data: session } = authClient.useSession();
 
   const handleUpdate = async (e) => {
     e.preventDefault();
-    const name = e.target.name.value;
-    const image = e.target.image.value;
+    const newName = e.target.name.value;
+    const newImage = e.target.image.value;
 
     const { data, error } = await authClient.updateUser({
-        name: name,
-        image: image,
+      name: newName,
+      image: newImage,
     });
 
     if (error) {
-        toast.error(error.message);
+      toast.error(error.message || "Update failed");
     } else {
-        toast.success("Profile updated successfully!");
-        router.push("/profile");
+      toast.success("Profile updated!");
+      // CRITICAL: Refresh the router so the Navbar icon appears/updates
+      router.refresh(); 
+      router.push("/"); 
     }
   };
 
   return (
-    <div className="flex justify-center items-center min-h-[80vh]">
-      <div className="card w-full max-w-sm shadow-xl bg-base-100 border">
+    <div className="flex justify-center items-center min-h-screen bg-base-200">
+      <div className="card w-full max-w-md shadow-xl bg-base-100">
         <form onSubmit={handleUpdate} className="card-body">
-          <h2 className="card-title text-2xl mb-4 text-primary">Update Info</h2>
+          <h2 className="card-title text-2xl font-bold text-primary">Update Profile</h2>
           
           <div className="form-control">
-            <label className="label"><span className="label-text">New Name</span></label>
-            <input name="name" type="text" placeholder="Enter new name" className="input input-bordered" required />
+            <label className="label"><span className="label-text">Display Name</span></label>
+            <input name="name" type="text" defaultValue={session?.user?.name} className="input input-bordered" required />
           </div>
 
           <div className="form-control">
-            <label className="label"><span className="label-text">New Photo URL</span></label>
-            <input name="image" type="text" placeholder="Paste image link" className="input input-bordered" required />
+            <label className="label"><span className="label-text">Profile Picture URL</span></label>
+            <input name="image" type="text" defaultValue={session?.user?.image} className="input input-bordered" required />
           </div>
 
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Update Information</button>
+            <button className="btn btn-primary">Save Changes</button>
           </div>
         </form>
       </div>

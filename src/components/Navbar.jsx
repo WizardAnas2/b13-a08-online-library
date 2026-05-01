@@ -1,32 +1,74 @@
+"use client";
+import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 
-const Navbar = () => {
-  const user = null; 
+export default function Navbar() {
+  const { data: session } = authClient.useSession();
 
   return (
-    <div className="navbar bg-base-100 shadow-md px-4 md:px-12 sticky top-0 z-50">
-      <div className="navbar-start">
-        <Link href="/" className="text-2xl font-bold text-primary">BookFlow</Link>
+    <nav className="navbar bg-base-100 shadow-md px-10">
+      <div className="flex-1">
+        <Link href="/" className="text-xl font-bold text-primary">
+          BookFlow
+        </Link>
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 font-semibold">
-          <li><Link href="/">Home</Link></li>
-          <li><Link href="/all-books">All Books</Link></li>
-          {user && <li><Link href="/profile">My Profile</Link></li>}
-        </ul>
-      </div>
-      <div className="navbar-end">
-        {user ? (
-          <div className="flex items-center gap-4">
-            <span className="font-medium">{user.name}</span>
-            <button className="btn btn-outline btn-sm">Logout</button>
+      <div className="flex-none gap-4 flex items-center">
+        {!session && (
+          <div className="flex gap-2">
+            <Link href="/login" className="btn btn-primary text-white btn-sm md:btn-md">
+              Login
+            </Link>
+            <Link href="/register" className="btn btn-outline btn-sm md:btn-md">
+              Register
+            </Link>
           </div>
-        ) : (
-          <Link href="/login" className="btn btn-primary">Login</Link>
+        )}
+        {session && (
+          <div className="flex items-center gap-3">
+            <span className="hidden sm:inline-block font-medium text-sm">
+              {session.user.name}
+            </span>
+            <div className="dropdown dropdown-end">
+              <div 
+                tabIndex={0} 
+                role="button" 
+                className="btn btn-ghost btn-circle avatar border border-primary"
+              >
+                <div className="w-10 rounded-full">
+                  <img 
+                    src={session.user.image || "https://avatar.iran.liara.run/public"} 
+                    alt="User Profile" 
+                  />
+                </div>
+              </div>
+              <ul 
+                tabIndex={0} 
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li className="sm:hidden border-b mb-1 pb-1">
+                  <span className="font-bold text-primary">
+                    {session.user.name}
+                  </span>
+                </li>
+                <li>
+                  <Link href="/profile/update">Update Profile</Link>
+                </li>
+                <li>
+                  <button 
+                    onClick={async () => {
+                      await authClient.signOut();
+                      window.location.reload(); 
+                    }}
+                    className="text-error"
+                  >
+                    Logout
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
         )}
       </div>
-    </div>
+    </nav>
   );
-};
-
-export default Navbar;
+}

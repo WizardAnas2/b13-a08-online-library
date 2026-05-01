@@ -2,13 +2,13 @@ import { betterAuth } from "better-auth";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
 import { MongoClient } from "mongodb";
 
-const client = new MongoClient("mongodb+srv://online-library:p2U3zMIVe1YjvyWV@cluster0.wsimzoo.mongodb.net/?appName=Cluster0");
+const client = new MongoClient(process.env.MONGODB_URI);
 const db = client.db("online-library");
 
 export const auth = betterAuth({
-    database: mongodbAdapter(db,{client}),
+    database: mongodbAdapter(db,client),
     emailAndPassword:{
-        enabled: true,
+        enabled: true
     },
     socialProviders: {
         google: {
