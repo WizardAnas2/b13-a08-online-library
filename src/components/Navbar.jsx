@@ -4,8 +4,6 @@ import Link from "next/link";
 
 export default function Navbar() {
   const { data: session } = authClient.useSession();
-
-  // Navigation Links for cleaner code
   const navLinks = (
     <>
       <li><Link href="/">Home</Link></li>
@@ -16,7 +14,6 @@ export default function Navbar() {
   return (
     <nav className="navbar bg-base-100 shadow-md px-4 md:px-10">
       <div className="navbar-start">
-        {/* Mobile Dropdown */}
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -38,7 +35,7 @@ export default function Navbar() {
         </ul>
       </div>
 
-      <div className="navbar-end gap-4 flex items-center">
+      <div className="navbar-end gap-5 flex items-center">
         {!session && (
           <div className="flex gap-2">
             <Link href="/login" className="btn btn-primary text-white btn-sm md:btn-md">

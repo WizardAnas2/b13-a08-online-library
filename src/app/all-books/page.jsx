@@ -3,25 +3,19 @@ import { useState } from "react";
 import booksData from "../../../public/data.json";
 import BookCard from "@/components/BookCard"; 
 import Sidebar from "@/components/Sidebar";  
-import Link from "next/link"; // Import Link
-
+import Link from "next/link"; 
 export default function AllBooks() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
-
   const filteredBooks = booksData.filter((book) => {
     const matchesSearch = book.title.toLowerCase().includes(search.toLowerCase());
     const matchesCategory = category === "All" || book.category === category;
     return matchesSearch && matchesCategory;
   });
-
   return (
     <div className="container mx-auto flex flex-col md:flex-row min-h-screen p-6 gap-8">
-      
       <Sidebar setCategory={setCategory} activeCategory={category} />
-
       <div className="flex-1">
-        {/* Added Return to Home Button */}
         <div className="mb-6 ">
            <Link href="/" className="btn btn-primary btn-lg ">
              Return to the home page
