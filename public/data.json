@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "title": "The Silent Forest",
+    "author": "Arif Hasan",
+    "description": "A mysterious tale of a village surrounded by a forest where no sound exists after sunset.",
+    "category": "Story",
+    "available_quantity": 12,
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdBPgvqFtxBubVCrB9W2t_xZagHxs4_SiohQ&s"
+  },
+  {
+    "id": 2,
+    "title": "Code Beyond Limits",
+    "author": "Nadia Rahman",
+    "description": "A deep dive into advanced programming techniques and modern software development practices.",
+    "category": "Tech",
+    "available_quantity": 8,
+    "image_url": "https://m.media-amazon.com/images/I/61ZxK23FJPL._AC_UF1000,1000_QL80_.jpg"
+  },
+  {
+    "id": 3,
+    "title": "The Quantum World",
+    "author": "Dr. Imran Kabir",
+    "description": "An accessible explanation of quantum physics and its impact on modern science.",
+    "category": "Science",
+    "available_quantity": 5,
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTd7JU6HdvcscCN5XyFtut_crMduKu5jUQMVg&s"
+  },
+  {
+    "id": 4,
+    "title": "Shadows of the Past",
+    "author": "Lamia Chowdhury",
+    "description": "A gripping story of secrets, betrayal, and redemption across generations.",
+    "category": "Story",
+    "available_quantity": 10,
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJZfxw1uwiSSAJYrazbCFsgC3CwH8nm6qX_g&s"
+  },
+  {
+    "id": 5,
+    "title": "AI Revolution",
+    "author": "Sabbir Ahmed",
+    "description": "Explores how artificial intelligence is transforming industries and daily life.",
+    "category": "Tech",
+    "available_quantity": 7,
+    "image_url": "https://m.media-amazon.com/images/I/71kwufoDVpL._AC_UF1000,1000_QL80_.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Space and Beyond",
+    "author": "Farhana Islam",
+    "description": "A journey through space exploration, from the Moon landing to Mars missions.",
+    "category": "Science",
+    "available_quantity": 6,
+    "image_url": "https://m.media-amazon.com/images/I/51-KC5bu2CL._AC_UF1000,1000_QL80_.jpg"
+  },
+  {
+    "id": 7,
+    "title": "The Last Letter",
+    "author": "Tanvir Hossain",
+    "description": "A heartfelt story of love and loss revealed through a final letter.",
+    "category": "Story",
+    "available_quantity": 9,
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-_gBWbkCRGZ0iJqolxdls3ZnZ7lm3lMeveg&s"
+  },
+  {
+    "id": 8,
+    "title": "Cybersecurity Basics",
+    "author": "Rafiul Karim",
+    "description": "An introduction to protecting digital systems and understanding cyber threats.",
+    "category": "Tech",
+    "available_quantity": 11,
+    "image_url": "https://m.media-amazon.com/images/I/71pKFWRBFbL._AC_UF350,350_QL50_.jpg"
+  },
+  {
+    "id": 9,
+    "title": "The Human Brain",
+    "author": "Dr. Nusrat Jahan",
+    "description": "Insights into how the brain works, from neurons to consciousness.",
+    "category": "Science",
+    "available_quantity": 4,
+    "image_url": "https://images.fineartamerica.com/images/artworkimages/medium/3/humna-brain-with-colorful-flowers-and-butterflies-on-book-page-madame-memento.jpg"
+  },
+  {
+    "id": 10,
+    "title": "Whispers in the Wind",
+    "author": "Mehedi Hasan",
+    "description": "A poetic story about destiny and the unseen forces that guide our lives.",
+    "category": "Story",
+    "available_quantity": 13,
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShvX2R6yvGrPeJPtNpNrsJ50y894EtyNleAQ&s"
+  },
+  {
+    "id": 11,
+    "title": "Web Development Mastery",
+    "author": "Jannatul Ferdous",
+    "description": "A comprehensive guide to building modern, responsive web applications.",
+    "category": "Tech",
+    "available_quantity": 6,
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmRSrXX26aA-23VZYD1e1wT15_is7QSJrkUg&s"
+  },
+  {
+    "id": 12,
+    "title": "Climate Change Explained",
+    "author": "Dr. Rezaul Karim",
+    "description": "A scientific look at climate change, its causes, and its global impact.",
+    "category": "Science",
+    "available_quantity": 5,
+    "image_url": "https://m.media-amazon.com/images/I/91ZhfrOBoyL._AC_UF1000,1000_QL80_.jpg"
+  }
+]
