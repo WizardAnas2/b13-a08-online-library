@@ -8,8 +8,8 @@ export default function Navbar() {
   return (
     <nav className="navbar bg-base-100 shadow-md px-10">
       <div className="flex-1">
-        <Link href="/" className="text-xl font-bold text-primary">
-          BookFlow
+        <Link href="/" className="text-3xl font-bold text-primary">
+          Online Library
         </Link>
       </div>
       <div className="flex-none gap-4 flex items-center">
