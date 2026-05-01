@@ -3,6 +3,7 @@ import { useState } from "react";
 import booksData from "../../../public/data.json";
 import BookCard from "@/components/BookCard"; 
 import Sidebar from "@/components/Sidebar";  
+import Link from "next/link"; // Import Link
 
 export default function AllBooks() {
   const [search, setSearch] = useState("");
@@ -19,14 +20,20 @@ export default function AllBooks() {
       
       <Sidebar setCategory={setCategory} activeCategory={category} />
 
-      
       <div className="flex-1">
+        {/* Added Return to Home Button */}
+        <div className="mb-6 ">
+           <Link href="/" className="btn btn-primary btn-lg ">
+             Return to the home page
+           </Link>
+        </div>
+
         <div className="form-control mb-8">
           <div className="input-group">
             <input 
               type="text" 
               placeholder="Search by title..." 
-              className="input input-bordered w-full focus:outline-primary"
+              className="input input-bordered w-full focus:outline-primary text-xl py-7 pl-9"
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
@@ -40,7 +47,7 @@ export default function AllBooks() {
           </div>
         ) : (
           <div className="text-center py-20">
-            <h2 className="text-2xl font-semibold text-gray-400">No books found in this category.</h2>
+            <h2 className="text-4xl font-semibold text-gray-600">No books found in this category. Please try another one.</h2>
           </div>
         )}
       </div>
