@@ -18,9 +18,9 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <div className="bg-secondary text-secondary-content py-2 overflow-hidden whitespace-nowrap">
-        <div className="animate-marquee inline-block font-bold text-3xl">
-          New Arrivals :  {booksData[0].title}  | Special Discount on Memberships!!!!! | New Tech Books Added! |&nbsp;
+      <div className="bg-primary text-secondary-content py-2 overflow-hidden whitespace-nowrap">
+        <div className="animate-marquee inline-block font-bold text-4xl">
+          New Arrivals :  {booksData[0].title}  | Special discount on memberships!!! | New text books added | Grab your next book &nbsp;
         </div>
       </div>
       <section className="p-12">
@@ -42,24 +42,24 @@ export default function Home() {
       <section className="bg-base-200 py-12 px-6">
         <div className="stats shadow w-full">
           <div className="stat place-items-center">
-            <div className="stat-title">Books Borrowed</div>
-            <div className="stat-value text-primary">2.7K</div>
+            <div className="stat-title text-xl font-bold ">Books Borrowed</div>
+            <div className="stat-value text-primary text-5xl">2.7K</div>
           </div>
           <div className="stat place-items-center">
-            <div className="stat-title">Active Users</div>
-            <div className="stat-value text-secondary">1,200</div>
+            <div className="stat-title text-xl font-bold">Active Users</div>
+            <div className="stat-value text-primary text-5xl">1,200</div>
           </div>
           <div className="stat place-items-center">
-            <div className="stat-title">New Authors</div>
-            <div className="stat-value">50+</div>
+            <div className="stat-title text-xl font-bold">New Authors</div>
+            <div className="stat-value text-primary text-5xl">50+</div>
           </div>
         </div>
       </section>
       <section className="py-12 text-center">
-        <h2 className="text-3xl font-bold mb-8">What Readers Say</h2>
+        <h2 className="text-5xl font-bold mb-8 text-primary">WHAT READERS SAY</h2>
         <div className="flex flex-wrap justify-center gap-6">
-           <div className="badge badge-outline p-6 h-auto max-w-xs">The best platform for finding tech books quickly! - Alex</div>
-           <div className="badge badge-outline p-6 h-auto max-w-xs">Love the clean UI and simple borrowing process. - Sarah</div>
+           <div className="badge badge-outline bg-blue-700 border-none p-6 h-auto max-w-xs text-2xl text-white">The best platform for finding tech books quickly! - Alex</div>
+           <div className="badge badge-outline p-6 h-auto max-w-xs text-2xl">Love the clean UI and simple borrowing process. - Sarah</div>
         </div>
       </section>
     </div>
