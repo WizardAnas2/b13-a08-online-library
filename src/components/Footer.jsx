@@ -14,7 +14,7 @@ const Footer = () => {
         </div>
       </nav> 
       <aside>
-        <p>Copyright © 2026 - All right reserved by Anas</p>
+        <p>Copyright &copy; 2026 - All right reserved by Anas</p>
       </aside>
     </footer>
   );
