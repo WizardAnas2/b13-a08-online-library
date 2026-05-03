@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 export default function UpdateProfile() {
   const router = useRouter();
   
-  // Use session to pre-fill the form if you want
+ 
   const { data: session } = authClient.useSession();
 
   const handleUpdate = async (e) => {
@@ -23,7 +23,6 @@ export default function UpdateProfile() {
       toast.error(error.message || "Update failed");
     } else {
       toast.success("Profile updated!");
-      // CRITICAL: Refresh the router so the Navbar icon appears/updates
       router.refresh(); 
       router.push("/"); 
     }
